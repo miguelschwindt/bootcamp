@@ -1,0 +1,18 @@
+#alias{
+	background-color: orange;
+	border-color: red;
+	border-right: 30px;
+	width: 180px;
+	padding: 20px;
+}
+.panel{
+	display:none;
+	background-color: #e5eecc;
+	padding: 20px;
+	width: 180px;
+	
+}
+
+
+
+	
