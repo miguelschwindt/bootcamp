@@ -1,0 +1,1 @@
+This is the day 1's practice. Exercise  from 1 to 10
