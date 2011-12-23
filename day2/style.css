@@ -1,0 +1,32 @@
+body{
+	width: 480px;
+	padding: 10px;
+}
+div{
+	border: 15px 15px 15px 15px;
+	border-bottom-width: 20px;
+}
+#alias{
+	background-color: orange;
+	border-color: red;
+	border-right: 30px;
+	width: 180px;
+	padding: 20px;
+}
+}
+#response, #movieResponse{
+	background-color: white;
+	width: 180px;
+	padding: 20px;
+	border: 15px 15px 15px 15px;
+	
+}
+.error{
+	background-color: red;
+	width: 180px;
+}
+
+
+
+
+	
