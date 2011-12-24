@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 function displayAlert()
 {
-	//alert("La pagina se ha cargado correctamente");
+	alert("La pagina se ha cargado correctamente");
 }
 function moveCursor(){
 		var cursor = $("#alias");
@@ -31,32 +31,30 @@ function buttonAjax()
       });
       
    $("#buttonMovie").click(function(){
-   		var json=$.post('../day1/api/dispatcher.php', 
-   			{service: 'movie.getTop'})
-   			.success(function(dataFromServer){
-   			//la dataFromService supongo q me devuelve un archivo json(?)
-   			//y lo parseo por (key,value)
-   					$.getJSON(dataFromServer, function(data) {
-  								var items = [];
-  								$.each(data, function(key, val) {
-    								items.push('<li id="' + key + '">' + val + '</li>');
-  								});
-
-  								$('<ul/>', {
-    								'class': 'my-new-list',
-    								html: items.join('')
-  								}).appendTo('#movieResponse');
-  								
-						});
-				})
-   			.error(function(data){
-   					//alert('Error in Service');
-   					$('#movieResponse').html('error in the service');
-      				$('#movieResponse').css('background-color','red');
-   			});
+   			$.ajax({
+  						url: 'http://albertomiranda.com.ar/html5/bootcamp/api/dispatcher.php?service=movie.getTop',
+  						type: 'POST',
+  						dataType : 'jsonp',
+  						crossDomain: true,
+  						success: function(datos){
+  							var metadatos = datos.data;
+  							$.each(metadatos,function(indice,value){ 
+  								$("#movieResponse").append("<div >" + 
+  								"<ul>Movie:" +
+  									"<li>Box Art: "+metadatos[indice].BoxArt.SmallUrl + "</li>" + 
+  									"<li>Title: "+metadatos[indice].Name + "</li>" + 
+  									"<li>Year: "+metadatos[indice].ReleaseYear + "</li>" + 
+  									"<li>Synopsis: "+metadatos[indice].Synopsis + "</li>" + 
+  								   "</ul></div>"); 
+  							});
+  							$( '#movieResponse' ).css( "padding-left","50%" );
+  							$( '#movieResponse' ).css( "border","1px solid" );
+  						},							
+  						error: function(data){
+  								alert('error response');
+  						}
+  				});
    });		
-   		   
-    
  }
 
 

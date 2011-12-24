@@ -15,9 +15,7 @@ div{
 }
 }
 #response, #movieResponse{
-	background-color: white;
-	width: 180px;
-	padding: 20px;
+	background-color: transparent;
 	border: 15px 15px 15px 15px;
 	
 }
