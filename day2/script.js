@@ -1,4 +1,4 @@
-$("#myPage").live('pageshow',function() {
+$("#myPage").live('pageinit',function() {
         displayAlert();
         moveCursor();
         clicks();
@@ -20,40 +20,39 @@ function clicks()
      $.post('../day2/api/dispatcher.php', 
      {service: 'welcome.hello',
       params: {"name": $('#alias').val()}})
+	  
       .success(function(dataFromServer) { 
       		$('#response').html(dataFromServer);
       		$('#response').css("background-color","lightgreen");})
       .error(function() { 
-      		$('#response').html('error in the service');
       		$('#response').css('background-color','red');});
       });
-      
    $("#buttonMovie").click(function(){
-   		var json=$.post('../day2/api/dispatcher.php', 
-   			{service: 'movie.getTop'})
-   			.success(function(dataFromServer){
-   			//la dataFromService supongo q me devuelve un archivo json(?)
-   			//y lo parseo por (key,value)
-   					$.getJSON(dataFromServer, function(data) {
-  								var items = [];
-  								$.each(data, function(key, val) {
-    								items.push('<li id="' + key + '">' + val + '</li>');
-  								});
-
-  								$('<ul/>', {
-    								'class': 'my-new-list',
-    								html: items.join('')
-  								}).appendTo('#movieResponse');
-  								
-						});
-				})
-   			.error(function(data){
-   					//alert('Error in Service');
-   					$('#movieResponse').html('error in the service');
-      				$('#movieResponse').css('background-color','red');
-   			});
+   			$.ajax({
+  						url: 'http://albertomiranda.com.ar/html5/bootcamp/api/dispatcher.php?service=movie.getTop',
+  						type: 'POST',
+  						dataType : 'jsonp',
+  						crossDomain: true,
+  						success: function(datos){
+  							var metadatos = datos.data;
+  							$.each(metadatos,function(indice,value){ 
+  								$("#movieResponse").append("<div >" + 
+  								"<ul>Movie:" +
+  									"<li>Box Art: "+metadatos[indice].BoxArt.SmallUrl + "</li>" + 
+  									"<li>Title: "+metadatos[indice].Name + "</li>" + 
+  									"<li>Year: "+metadatos[indice].ReleaseYear + "</li>" + 
+  									"<li>Synopsis: "+metadatos[indice].Synopsis + "</li>" + 
+  								   "</ul></div>"); 
+  							});
+  							$( '#movieResponse' ).css( "padding-left","50%" );
+  							$( '#movieResponse' ).css( "border","1px solid" );
+  						},							
+  						error: function(data){
+  								alert('error response');
+  						}
+  				});
    });		
-   
+
    $('#buttonLoader').click(function(){
    			$.mobile.showPageLoadingMsg();   		
    });
