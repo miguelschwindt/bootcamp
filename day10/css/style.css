@@ -1,0 +1,113 @@
+header, nav, article, section, footer, figure, aside {
+    display: block;
+}
+@media screen and (min-device-width: 1200px) {
+	body{
+			background-color: lightblue;
+		}
+	p#column {
+		-moz-column-count: 4;
+		-moz-column-gap: 20px;
+		-webkit-column-count: 4;
+		-webkit-column-gap: 20px;
+		column-count: 4;
+		column-gap: 20px;
+	}
+	img{
+		width : 30%;
+		high : 30%;
+	}
+	.menu a:hover{
+		background-color: gray;
+	}
+	#home{
+		border-left: solid 2px;
+	}
+	#dia3{
+		border-right: solid 2px;
+	}
+	#seccion article:first-child{
+		float: left;
+		width : 50%;
+		}
+	.hiOne{
+  
+	background-color: red;
+	}
+
+	.hiTwo{
+		background-color: green;
+	}
+	
+	.hiThree{
+		background-color: blue;
+	}
+	span[class^="hi"]{
+
+		background-color: yellow;
+	}
+	span[class$="One"]{
+
+		background-color: red;
+	}
+	span{
+			background-color: transparent;
+	}
+	.href1{
+		color:red;
+	}
+	
+	.href2{
+		color:blue;
+	}
+	article{	
+ 		-moz-text-shadow:    3px 3px 5px 6px green;
+  	-webkit-text-shadow: 3px 3px 5px 6px green;
+  	text-shadow: 2px 2px 2px green;
+			     
+ }
+ 
+	aside{
+		transform: rotate(-37deg);
+		-moz-transform: rotate(-37deg); /* Firefox */
+		-webkit-transform: rotate(-37deg); /* Safari and Chrome */
+
+	}
+	
+}
+
+
+
+
+
+
+@media screen and (min-device-width: 800px)
+							and (max-device-width: 1200px) {
+	p {
+		-moz-column-count: 3;
+		-moz-column-gap: 25px;
+		-webkit-column-count: 3;
+		-webkit-column-gap: 25px;
+		column-count: 3;
+		column-gap: 25px;
+	}
+	img{
+		width : 25%;
+		high : 25%;
+	}
+}
+@media screen and (max-device-width: 800px) {
+	p {
+		-moz-column-count: 1;
+		-moz-column-gap: 5px;
+		-webkit-column-count: 1;
+		-webkit-column-gap: 5px;
+		column-count: 1;
+		column-gap: 5px;
+	}
+	img{
+		display: none
+	}
+}
+
+
