@@ -2,7 +2,6 @@
 <html>
      <meta charset="utf-8">
     <head>
-        <meta charset="utf-8">
         <title>CSS playground</title>
         <link rel="STYLESHEET" type="text/css" href="css/style.css">
     </head>
