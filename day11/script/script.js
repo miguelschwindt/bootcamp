@@ -1,6 +1,7 @@
 function disp(){
       	var data = $( 'textarea' ).val();
-      	var save = $( 'input:checkbox' ).val();
+      	var save = $( 'input:checked' ).val();
+      	console.log(save);
       	if (save){
       			window.localStorage.setItem('value', "<script>"+data+"</script>");
 	        	window.localStorage.setItem('timestamp', (new Date()).getTime());
