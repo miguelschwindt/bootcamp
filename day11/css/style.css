@@ -1,0 +1,10 @@
+#dropzone{
+	height:100px;
+	width:400px;
+	padding: 5px; 
+	border-style: dashed;
+	text-align : center;	
+}
+#dropzone:hovering{
+		background-color: lightblue;
+	}

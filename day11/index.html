@@ -2,16 +2,18 @@
 <html>
      <meta charset="utf-8">
     <head>
-        <title>CSS playground</title>
+        <title>Day 11</title>
         <link rel="STYLESHEET" type="text/css" href="css/style.css">
         <script src="script/jquery-1.7.js" type="text/javascript"></script>
         <script type="text/javascript">
 				//<![CDATA[
 							$(document).ready(function(){
+										
 				             $("#boton").click(function(){
 				             	try{disp();}
 				             	catch(e){console.log('funcion no existe');};
 				             	 $.getScript("script/script.js", function() {
+				             	 			dragAndDrop();
 				             	  		//runJavascript();
 				             	  		alert("carga completada");
 				             	  		disp();
@@ -27,7 +29,10 @@
     <body>
     		<textarea name="nMessage" id="area" cols="30" rows="10"></textarea>
     		<input type="button" value="run" id="boton">
+    		<br />
+    		<input type="checkbox" value="save"/>
+    		<p>Save</p>
     		<div id="log"></div>
-        
+      	<div id="dropzone">Drag and Drop Area</div>
     </body>
 </html>
